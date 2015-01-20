@@ -5,6 +5,7 @@
 from PIL import Image
 from PIL.ExifTags import TAGS
 from datetime import datetime
+from img_iterator import ImageIterator
 
 def get_exif_dict(name):
 	exif = {}
@@ -25,9 +26,10 @@ def get_timestamp_exif(name):
 	date = datetime.strptime(time, "%Y:%m:%d %H:%M:%S")
 	return int(date.strftime('%s'))
 
-name = "sample_img.jpg"
-date = get_timestamp_exif(name)
-print date
+img_iter = ImageIterator()
+for img in img_iter:
+	date = get_timestamp_exif(img)
+	print date
 
 
 
