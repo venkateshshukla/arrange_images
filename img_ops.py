@@ -25,15 +25,19 @@ def is_present(name, dest):
 	filename = os.path.join(dest, img_name)
 	return os.path.isfile(filename)
 
-def img_copy(src = None, dest = None, dest_path = "out/", dupl_path = "out/duplicates/"):
+def img_copy(src, dest = None, dest_path = "out/", dupl_path = "out/duplicates/"):
 	'''
 	Copies img from src to dest putting duplicates in dupl.
 	All paths are relative to path of the file.
 	:param src: path to image file.
-	:param dest: name of the final image file without path. By default src.
+	:param dest: name of the final image file without path. If None is provided, it choses src.
 	:param dest_path: destination folder where the file should be put.
 	:param dupl_path: folder where duplicates, if found, may be put.
 	'''
+
+	# Default dest name is the src name.
+	if dest is None:
+		dest = src
 
 	# Sanity checks
 	assert src is not None, "src path cannot be None"
