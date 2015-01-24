@@ -8,7 +8,7 @@ from img_ops import img_copy
 
 img_iter = ImageIterator()
 for img in img_iter:
-	uniq_name = get_timestamp(img)
+	uniq_name = get_unique_name(img)
 	filename = uniq_name + '.jpg'
 	img_copy(img, filename)
 

@@ -36,3 +36,17 @@ def get_timestamp(name):
 	date = datetime.strptime(time, "%Y:%m:%d %H:%M:%S")
 	return int(date.strftime('%s'))
 
+def get_unique_name(name):
+	'''
+	Gives back unique name depending upon date and time and timestamp.
+	This name would also give useful information to user regarding date and
+	time of taking image and would help sorting the images in right order.
+	:param name: path of the jpeg file
+	'''
+	time = get_time(name)
+	date = datetime.strptime(time, "%Y:%m:%d %H:%M:%S")
+	ts6 = date.strftime("%s")[4:]
+	dt = date.strftime("%Y_%m_%d_")
+	flname = dt + ts6
+	return flname
+
