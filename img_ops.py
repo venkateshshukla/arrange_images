@@ -67,4 +67,5 @@ def img_copy(src, dest = None, dest_path = "out/", dupl_path = "out/duplicates/"
 	else:
 		final_path = os.path.join(dest_dir, dest_filename)
 		shutil.copy(src, final_path)
+		print "Copied file from {} to {}".format(src, os.path.join(dest_path, dest))
 
